@@ -76,7 +76,7 @@ public class EungAe {
 		System.out.println("        UU  UU                            AAAAA          ");
 		System.out.println("EEEEE   UU  UU    NN    NN               AA   AA    EEEEE");
 		System.out.println("EE      UU  UU    NNN   NN   GGGGGG      AAAAAAA    EE   ");
-		System.out.println("EEEEE   UU  UU    NN N  NN   GG      ★   AA   AA    EEEEE");
+		System.out.println("EEEEE   UU  UU    NN N  NN   GG      ★  AA   AA    EEEEE");
 		System.out.println("EE       UUUU     NN   NNN   GG GGG      AA   AA    EE   ");
 		System.out.println("EEEEE             NN    NN   GG  GG                 EEEEE");
 		System.out.println("                             GGGGGG                      ");
@@ -84,7 +84,7 @@ public class EungAe {
 		System.out.println();
 		System.out.println("           EEEEE                      GGGGGG                      ");
 		System.out.println("           EE      UU  UU             GG                     EEEEE");
-		System.out.println("           EEEEE   UU  UU   NN   NN   GG GGG   ★   AAAAA     EE   ");
+		System.out.println("           EEEEE   UU  UU   NN   NN   GG GGG   ★  AAAAA     EE   ");
 		System.out.println("           EE      UU  UU   NNN  NN   GG  GG      AA   AA    EEEEE");
 		System.out.println("           EEEEE   UU  UU   NN N NN   GGGGGG      AAAAAAA    EE   ");
 		System.out.println("                    UUUU    NN  NNN               AA   AA    EEEEE");
