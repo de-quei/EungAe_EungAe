@@ -1,10 +1,9 @@
 package Project_2022;
 
-//import java.sql.Connection;
-//import java.sql.DriverManager;
-//import java.sql.PreparedStatement;
-//import java.sql.SQLException;
-
+/*import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;*/
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -90,19 +89,19 @@ public class EungAe {
 		System.out.println("           EEEEE   UU  UU   NN N NN   GGGGGG      AAAAAAA    EE   ");
 		System.out.println("                    UUUU    NN  NNN               AA   AA    EEEEE");
 		System.out.println("                            NN   NN               AA   AA         ");
-    		System.out.println();
-    		System.out.println("     < 메뉴 선택>");
-    		System.out.println();
-    		System.out.println("     1. 서비스 안내");
-    		System.out.println("     2. 서비스 시작");
-    		//System.out.println("     3. 회원가입");
-    		//System.out.println("     4. 로그인");
-    		//System.out.println("     5. 로그아웃");
-    		System.out.println("     6. ※게시판※");
-    		System.out.println("     7. 지역 별 문의처 전화번호");
-    		System.out.println("     8. 종료");
-    		System.out.print("     >>>");
-    		int select = sc.nextInt();
+    	System.out.println();
+    	System.out.println("     < 메뉴 선택>");
+    	System.out.println();
+    	System.out.println("     1. 서비스 안내");
+    	System.out.println("     2. 서비스 시작");
+    	//System.out.println("     3. 회원가입");
+    	//System.out.println("     4. 로그인");
+    	//System.out.println("     5. 로그아웃");
+    	System.out.println("     6. ※게시판※");
+    	System.out.println("     7. 지역 별 문의처 전화번호");
+    	System.out.println("     8. 종료");
+    	System.out.print("     >>>");
+    	int select = sc.nextInt();
 			
 			switch(select) {
 			case 1: // 서비스 안내
@@ -341,7 +340,7 @@ public class EungAe {
 					}
 					
 				}
-			case 3:{
+			/*case 3:{
 				//join();
 				break;
 			}
@@ -350,7 +349,7 @@ public class EungAe {
 			}
 			case 5:{
 				break;
-			}
+			}*/
 			case 6:{ //게시판 기능 
 				List<PersonInfo> person = new ArrayList<>();
 				readTxt(person); //텍스트 파일 읽기
@@ -361,6 +360,12 @@ public class EungAe {
 				break;
 			}
 			case 8:{
+				System.out.println();
+				System.out.println("    =============================================");
+				System.out.println("    *          이용해주셔서 정말 감사합니다!           *");
+				System.out.println("    *   더욱 더 발전하는 응애응애가 되도록 하겠습니다     *");
+				System.out.println("    =============================================");
+				System.exit(0);
 				break;
 			}
 			
