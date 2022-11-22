@@ -1,9 +1,9 @@
 package Project_2022;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+//import java.sql.Connection;
+//import java.sql.DriverManager;
+//import java.sql.PreparedStatement;
+//import java.sql.SQLException;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -90,19 +90,19 @@ public class EungAe {
 		System.out.println("           EEEEE   UU  UU   NN N NN   GGGGGG      AAAAAAA    EE   ");
 		System.out.println("                    UUUU    NN  NNN               AA   AA    EEEEE");
 		System.out.println("                            NN   NN               AA   AA         ");
-    	System.out.println();
-    	System.out.println("     < 메뉴 선택>");
-    	System.out.println();
-    	System.out.println("     1. 서비스 안내");
-    	System.out.println("     2. 서비스 시작");
-    	//System.out.println("     3. 회원가입");
-    	//System.out.println("     4. 로그인");
-    	//System.out.println("     5. 로그아웃");
-    	System.out.println("     6. ※게시판※");
-    	System.out.println("     7. 지역 별 문의처 전화번호");
-    	System.out.println("     8. 종료");
-    	System.out.print("     >>>");
-    	int select = sc.nextInt();
+    		System.out.println();
+    		System.out.println("     < 메뉴 선택>");
+    		System.out.println();
+    		System.out.println("     1. 서비스 안내");
+    		System.out.println("     2. 서비스 시작");
+    		//System.out.println("     3. 회원가입");
+    		//System.out.println("     4. 로그인");
+    		//System.out.println("     5. 로그아웃");
+    		System.out.println("     6. ※게시판※");
+    		System.out.println("     7. 지역 별 문의처 전화번호");
+    		System.out.println("     8. 종료");
+    		System.out.print("     >>>");
+    		int select = sc.nextInt();
 			
 			switch(select) {
 			case 1: // 서비스 안내
@@ -133,9 +133,17 @@ public class EungAe {
 				while(exist) {
 					System.out.println();
 					System.out.println("    현재 생애 주기를 선택하여 주십시오.");
-					System.out.println("    [1]. 임신 / [2]. 출산 / [3]. 육아");
+					System.out.println("    [1]. 임신 / [2]. 출산 / [3]. 육아 / [4]. 종료");
 					System.out.print("    >>>");
 					int Menu_num1 = sc.nextInt();
+					if(Menu_num1 == 4) {
+						System.out.println();
+						System.out.println("    *****************************");
+						System.out.println("    *          감사합니다          *");
+						System.out.println("    *****************************");
+						exist = false;
+						break;
+					}
 					while(Menu_num1 < 1 || Menu_num1 > 3) {
 						System.out.print("    다시 입력하여주십시오 >>> ");
 						Menu_num1 = sc.nextInt();
@@ -331,14 +339,7 @@ public class EungAe {
 						}
 					break;
 					}
-					if(Menu_num1 == 4) {
-						System.out.println();
-						System.out.println("*****************************");
-						System.out.println("*          감사합니다          *");
-						System.out.println("*****************************");
-						exist = false;
-						break;
-					}
+					
 				}
 			case 3:{
 				//join();
@@ -591,4 +592,3 @@ public class EungAe {
 			}
 		}
 	}
-
