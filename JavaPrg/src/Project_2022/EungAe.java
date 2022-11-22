@@ -70,13 +70,14 @@ public class EungAe {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
+		ArrayList<String> N_list = new ArrayList<String>(); // 리스트 선언
 		
 		while(true) {
 		System.out.println();
 		System.out.println("        UU  UU                            AAAAA          ");
 		System.out.println("EEEEE   UU  UU    NN    NN               AA   AA    EEEEE");
 		System.out.println("EE      UU  UU    NNN   NN   GGGGGG      AAAAAAA    EE   ");
-		System.out.println("EEEEE   UU  UU    NN N  NN   GG      ★  AA   AA    EEEEE");
+		System.out.println("EEEEE   UU  UU    NN N  NN   GG      ★   AA   AA    EEEEE");
 		System.out.println("EE       UUUU     NN   NNN   GG GGG      AA   AA    EE   ");
 		System.out.println("EEEEE             NN    NN   GG  GG                 EEEEE");
 		System.out.println("                             GGGGGG                      ");
@@ -84,7 +85,7 @@ public class EungAe {
 		System.out.println();
 		System.out.println("           EEEEE                      GGGGGG                      ");
 		System.out.println("           EE      UU  UU             GG                     EEEEE");
-		System.out.println("           EEEEE   UU  UU   NN   NN   GG GGG   ★  AAAAA     EE   ");
+		System.out.println("           EEEEE   UU  UU   NN   NN   GG GGG   ★   AAAAA     EE   ");
 		System.out.println("           EE      UU  UU   NNN  NN   GG  GG      AA   AA    EEEEE");
 		System.out.println("           EEEEE   UU  UU   NN N NN   GGGGGG      AAAAAAA    EE   ");
 		System.out.println("                    UUUU    NN  NNN               AA   AA    EEEEE");
@@ -94,9 +95,9 @@ public class EungAe {
     	System.out.println();
     	System.out.println("     1. 서비스 안내");
     	System.out.println("     2. 서비스 시작");
-    	System.out.println("     3. 회원가입");
-    	System.out.println("     4. 로그인");
-    	System.out.println("     5. 로그아웃");
+    	//System.out.println("     3. 회원가입");
+    	//System.out.println("     4. 로그인");
+    	//System.out.println("     5. 로그아웃");
     	System.out.println("     6. ※게시판※");
     	System.out.println("     7. 지역 별 문의처 전화번호");
     	System.out.println("     8. 종료");
@@ -104,9 +105,7 @@ public class EungAe {
     	int select = sc.nextInt();
 			
 			switch(select) {
-			case 1:
-				ArrayList<String> N_list = new ArrayList<String>(); // 리스트 선언
-
+			case 1: // 서비스 안내
 				File note = new File("C:/Users/user/Desktop/textfile/guide.txt");
 						try{
 						        BufferedReader br = new BufferedReader(new FileReader(note));
@@ -129,26 +128,35 @@ public class EungAe {
 							System.out.println(N_list.get(i)); // 순서대로 출력
 						}
 				break;
-			case 2:
+			case 2: // 서비스 시작
+				boolean exist = true;
+				while(exist) {
+					System.out.println();
 					System.out.println("    현재 생애 주기를 선택하여 주십시오.");
-					System.out.println("    1. 임신 / 2. 출산 / 3. 육아");
+					System.out.println("    [1]. 임신 / [2]. 출산 / [3]. 육아");
 					System.out.print("    >>>");
 					int Menu_num1 = sc.nextInt();
+					while(Menu_num1 < 1 || Menu_num1 > 3) {
+						System.out.print("    다시 입력하여주십시오 >>> ");
+						Menu_num1 = sc.nextInt();
+					}
+					System.out.println();
 					System.out.println("    필요한 서비스의 분야를 선택하여 주십시오.");
 					System.out.println("    [1]. 경제 / [2]. 의료 / [3]. 사회복지");
 					System.out.print("    >>>");
 					int Menu_num2 = sc.nextInt();
-					
+					while(Menu_num2 < 1 || Menu_num2 > 3) {
+						System.out.print("    다시 입력하여주십시오 >>> ");
+						Menu_num1 = sc.nextInt();
+					}
 					if(Menu_num1 == 1) {
 						if(Menu_num2 == 1) {
-							ArrayList<String> N_list1 = new ArrayList<String>(); // 리스트 선언
-
-							File note1 = new File("C:/Users/user/Desktop/textfile/p_e.txt");
+							File note1_1 = new File("C:/Users/user/Desktop/textfile/p_e.txt");
 									try{
-									        BufferedReader br = new BufferedReader(new FileReader(note1));
+									        BufferedReader br = new BufferedReader(new FileReader(note1_1));
 									        String str = br.readLine();
 							                while(str != null){
-							                	N_list1.add(str); //ArrayList에 저장
+							                	N_list.add(str); //ArrayList에 저장
 							                	str = br.readLine();
 							                }
 
@@ -161,19 +169,17 @@ public class EungAe {
 										e.getStackTrace();
 									}
 							        
-							        for(int i = 0; i < N_list1.size(); i++){ // 저장된 Array의 크기만큼 루프
-										System.out.println(N_list1.get(i)); // 순서대로 출력
+							        for(int i = 0; i < N_list.size(); i++){ // 저장된 Array의 크기만큼 루프
+										System.out.println(N_list.get(i)); // 순서대로 출력
 									}
 							break;
 						}else if(Menu_num2 == 2) {
-							ArrayList<String> N_list2 = new ArrayList<String>(); // 리스트 선언
-
-							File note2 = new File("C:/Users/user/Desktop/textfile/p_m.txt");
+							File note1_2 = new File("C:/Users/user/Desktop/textfile/p_m.txt");
 									try{
-									        BufferedReader br = new BufferedReader(new FileReader(note2));
+									        BufferedReader br = new BufferedReader(new FileReader(note1_2));
 									        String str = br.readLine();
 							                while(str != null){
-							                	N_list2.add(str); //ArrayList에 저장
+							                	N_list.add(str); //ArrayList에 저장
 							                	str = br.readLine();
 							                }
 
@@ -186,14 +192,32 @@ public class EungAe {
 										e.getStackTrace();
 									}
 							        
-							        for(int i = 0; i < N_list2.size(); i++){ // 저장된 Array의 크기만큼 루프
-										System.out.println(N_list2.get(i)); // 순서대로 출력
+							        for(int i = 0; i < N_list.size(); i++){ // 저장된 Array의 크기만큼 루프
+										System.out.println(N_list.get(i)); // 순서대로 출력
 									}
 							break;
 						}else if(Menu_num2 == 3) {
-							System.out.println("    <1. 출산 교실과 용품 지원>");
-							System.out.println("    - 내용: 아이용품 만들기, 산후우울증 극복, 성공적인 모유수유, 순산체도, 다양한 임신/출산 교육 프로그램 제공");
-							System.out.println("    - 신청: 관할 보건소 문의 (운영기간 및 신청일 정보 수집)");
+							File note1_3 = new File("C:/Users/user/Desktop/textfile/p_s.txt");
+							try{
+							        BufferedReader br = new BufferedReader(new FileReader(note1_3));
+							        String str = br.readLine();
+					                while(str != null){
+					                	N_list.add(str); 
+					                	str = br.readLine();
+					                }
+
+							        br.close();
+							} catch (NullPointerException e){ 
+								e.getStackTrace();
+							} catch (FileNotFoundException e){ 
+								e.getStackTrace();
+							} catch (IOException e){ 
+								e.getStackTrace();
+							}
+					        
+					        for(int i = 0; i < N_list.size(); i++){ 
+								System.out.println(N_list.get(i)); 
+							}
 							break;
 						}
 					}else if(Menu_num1 == 2) {
@@ -208,12 +232,50 @@ public class EungAe {
 							System.out.println("    - 지차체 별개로 국가에서 지급");
 							break;
 						}else if(Menu_num2 == 2) {
-							System.out.println();
-							System.out.println("    ※ 데이터가 부족합니다! ※");
-							break;
+							File note2_2 = new File("C:/Users/user/Desktop/textfile/doesn'tExist.txt");
+									try{
+									        BufferedReader br = new BufferedReader(new FileReader(note2_2));
+									        String str = br.readLine();
+							                while(str != null){
+							                	N_list.add(str); 
+							                	str = br.readLine();
+							                }
+
+									        br.close();
+									} catch (NullPointerException e){
+										e.getStackTrace();
+									} catch (FileNotFoundException e){ 
+										e.getStackTrace();
+									} catch (IOException e){ 
+										e.getStackTrace();
+									}
+							        
+							        for(int i = 0; i < N_list.size(); i++){ 
+										System.out.println(N_list.get(i)); 
+									}
+							        break;
 						}else if(Menu_num2 == 3) {
-							System.out.println();
-							System.out.println("    ※ 데이터가 부족합니다! ※");
+							File note2_3 = new File("C:/Users/user/Desktop/textfile/doesn'tExist.txt");
+							try{
+							        BufferedReader br = new BufferedReader(new FileReader(note2_3));
+							        String str = br.readLine();
+					                while(str != null){
+					                	N_list.add(str); 
+					                	str = br.readLine();
+					                }
+
+							        br.close();
+							} catch (NullPointerException e){ 
+								e.getStackTrace();
+							} catch (FileNotFoundException e){ 
+								e.getStackTrace();
+							} catch (IOException e){ 
+								e.getStackTrace();
+							}
+					        
+					        for(int i = 0; i < N_list.size(); i++){ 
+								System.out.println(N_list.get(i)); 
+							}
 							break;
 						}
 					}else if(Menu_num1 == 3) {
@@ -233,8 +295,27 @@ public class EungAe {
 							System.out.println("    - 내용: 사용한 사람에게 첫 3개월까지 통상임금의 100%(상한액 월 250만원)지급");
 							break;
 						}else if(Menu_num2 == 2) {
-							System.out.println();
-							System.out.println("    ※ 데이터가 부족합니다! ※");
+							File note3_2 = new File("C:/Users/user/Desktop/textfile/doesn'tExist.txt");
+							try{
+							        BufferedReader br = new BufferedReader(new FileReader(note3_2));
+							        String str = br.readLine();
+					                while(str != null){
+					                	N_list.add(str); 
+					                	str = br.readLine();
+					                }
+
+							        br.close();
+							} catch (NullPointerException e){ 
+								e.getStackTrace();
+							} catch (FileNotFoundException e){
+								e.getStackTrace();
+							} catch (IOException e){ 
+								e.getStackTrace();
+							}
+					        
+					        for(int i = 0; i < N_list.size(); i++){ 
+								System.out.println(N_list.get(i)); 
+							}
 							break;
 						}else if(Menu_num2 == 3) {
 							System.out.println();
@@ -249,9 +330,18 @@ public class EungAe {
 							break;
 						}
 					break;
+					}
+					if(Menu_num1 == 4) {
+						System.out.println();
+						System.out.println("*****************************");
+						System.out.println("*          감사합니다          *");
+						System.out.println("*****************************");
+						exist = false;
+						break;
+					}
 				}
 			case 3:{
-				join();
+				//join();
 				break;
 			}
 			case 4:{
@@ -277,7 +367,7 @@ public class EungAe {
 			
 		}
 	}
-	public static void join() {
+	/*public static void join() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("가입 아이디 입력 : ");
 		String id = sc.next();
@@ -342,7 +432,7 @@ public class EungAe {
 		
 		 //메뉴 출력 메소드
 	   
-	}
+	}*/
 	private static void run(List<PersonInfo> person) {
 		boolean runx = true;
 		int num = 0;
@@ -354,7 +444,7 @@ public class EungAe {
 		
 		while(runx) {
 			Scanner sc = new Scanner(System.in);
-			System.out.println("1.리스트  2. 등록  3. 삭제  4. 검색  5. 종료");
+			System.out.println("1.게시판내역  2. 등록  3. 삭제  4. 검색  5. 종료");
 			System.out.println("----------------------------------------");
 			System.out.print("메뉴 번호 >>> ");
 			num = sc.nextInt();
