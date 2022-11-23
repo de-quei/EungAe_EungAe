@@ -1,9 +1,10 @@
 package Project_2022;
-//로그아웃 구현하기, 로그인 안하면 게시판 안열리게 구현하기, 리스트는 역순으로 
+//loginVaild로 로그인안하면 게시판 안열리게 , 로그인 후 게시판 등록하면 디비에서 이름 자동 업로드 / 로그아웃, 회원탈퇴
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException; 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -13,7 +14,6 @@ import java.io.Reader;
 import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -94,9 +94,9 @@ public class EungAe {
     	System.out.println();
     	System.out.println("     1. 서비스 안내");
     	System.out.println("     2. 서비스 시작");
-    	//System.out.println("     3. 회원가입");
-    	//System.out.println("     4. 로그인");
-    	//System.out.println("     5. 로그아웃");
+    	System.out.println("     3. 회원가입");
+    	System.out.println("     4. 로그인");
+    	System.out.println("     5. 로그아웃");
     	System.out.println("     6. ※게시판※");
     	System.out.println("     7. 지역 별 문의처 전화번호");
     	System.out.println("     8. 종료");
@@ -338,8 +338,9 @@ public class EungAe {
 						}
 					break;
 					}
-					
+					break;
 				}
+				break;
 			case 3:{
 				join();
 				break;
@@ -371,15 +372,15 @@ public class EungAe {
 			}
 			
 			}
-			
 		}
 	}
 	public static void join() {
+		
 		Scanner sc = new Scanner(System.in);
 		System.out.print("가입 아이디 입력 : ");
 		String id = sc.next();
 		System.out.print("가입 패스워드 입력 : ");
-		String password1 = sc.next();
+		String pw = sc.next();
 		System.out.print("성함 입력 : ");
 		String name = sc.next();
 		System.out.print("전화번호 입력 : ");
@@ -415,7 +416,7 @@ public class EungAe {
 			//3. Query준비
 			pstm = con.prepareStatement(sql);
 			pstm.setString(1,  id);
-			pstm.setString(2,  password1);
+			pstm.setString(2,  pw);
 			pstm.setString(3,  name);
 			pstm.setString(4,  tel);
 			//4. Query 실행 및 리턴
@@ -444,14 +445,13 @@ public class EungAe {
 		boolean runx = true;
 		int num = 0;
 		String serchstr = "";
-		
 		System.out.println("*******************************");
 		System.out.println("*          게   시   판         *");
 		System.out.println("*******************************");
 		
 		while(runx) {
 			Scanner sc = new Scanner(System.in);
-			System.out.println("1.게시판내역  2. 등록  3. 삭제  4. 검색  5. 종료");
+			System.out.println("1.리스트  2. 등록  3. 삭제  4. 검색  5. 종료");
 			System.out.println("----------------------------------------");
 			System.out.print("메뉴 번호 >>> ");
 			num = sc.nextInt();
@@ -459,7 +459,7 @@ public class EungAe {
 			switch(num) {
 			case 1:
 				System.out.println();
-				System.out.println("<1. 리스트>");
+				System.out.println("<1 리스트>");
 				showinfo(person);
 				System.out.println();
 				break;
@@ -496,7 +496,9 @@ public class EungAe {
 			}
 			
 		}
-	}
+		
+		}
+	
 		//이름에서 단어를 포함하는 검색 기능
 		private static void search(List<PersonInfo> person, String str) {
 			for(int i = 0; i < person.size(); i++) {
@@ -517,9 +519,9 @@ public class EungAe {
 			System.out.println("[삭제되었습니다.]");
 		}
 		
-		//리스트 보여주기 기능
+		//게시판 리스트를 보여주는 기능
 		private static void showinfo(List<PersonInfo> person) {
-			for(int i = 0; i < person.size(); i++) {
+			for(int i = person.size()-1; i >= 0; i--) {
 				System.out.println(person.get(i).toString());
 			}
 		}
@@ -541,8 +543,6 @@ public class EungAe {
 			wirteTxt(person);
 			System.out.println("[등록되었습니다.]");
 		}
-		
-		//업데이트 기능
 		private static void update(List<PersonInfo> person) {
 			for(int i = 0; i < person.size(); i++) {
 				PersonInfo n = (PersonInfo) person.get(i);
@@ -597,7 +597,7 @@ public class EungAe {
 				}
 			}
 		}
-	public static void login() {
+		public static void login() {
 			Scanner sc = new Scanner(System.in);
 			System.out.print("    >아이디 입력 : ");
 			String id = sc.next();
@@ -666,5 +666,4 @@ public class EungAe {
 				System.out.println("    [로그인에 실패하였습니다.]");
 			}
 		}
-	}
 	}
