@@ -1,9 +1,9 @@
 package Project_2022;
-
-/*import java.sql.Connection;
+//로그아웃 구현하기, 로그인 안하면 게시판 안열리게 구현하기, 리스트는 역순으로 
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;*/
+import java.sql.SQLException; 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
@@ -340,16 +340,17 @@ public class EungAe {
 					}
 					
 				}
-			/*case 3:{
-				//join();
+			case 3:{
+				join();
 				break;
 			}
 			case 4:{
+				login();
 				break;
 			}
 			case 5:{
 				break;
-			}*/
+			}
 			case 6:{ //게시판 기능 
 				List<PersonInfo> person = new ArrayList<>();
 				readTxt(person); //텍스트 파일 읽기
@@ -373,7 +374,7 @@ public class EungAe {
 			
 		}
 	}
-	/*public static void join() {
+	public static void join() {
 		Scanner sc = new Scanner(System.in);
 		System.out.print("가입 아이디 입력 : ");
 		String id = sc.next();
@@ -438,7 +439,7 @@ public class EungAe {
 		
 		 //메뉴 출력 메소드
 	   
-	}*/
+	}
 	private static void run(List<PersonInfo> person) {
 		boolean runx = true;
 		int num = 0;
@@ -596,4 +597,74 @@ public class EungAe {
 				}
 			}
 		}
+	public static void login() {
+			Scanner sc = new Scanner(System.in);
+			System.out.print("    >아이디 입력 : ");
+			String id = sc.next();
+
+			System.out.print("    >패스워드 입력 : ");
+			String password = sc.next();
+			
+			// 로그인 성공 여부
+			boolean successLogin = false;
+
+			//1.
+			try {
+				Class.forName("com.mysql.cj.jdbc.Driver");
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			
+			//2.
+			String url = "jdbc:mysql://localhost:3306/eungae_eungae?serverTimezone=UTC";
+			String user = "root";
+			String Password = "0000";
+			Connection con = null;
+			try {
+				con = DriverManager.getConnection(url, user, Password);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			
+			//3.
+			String sql = "SELECT * FROM useraccount WHERE id=?"; // 사용자 ID 컬럼 이름으로 수정필요.
+			
+			PreparedStatement pstm = null;
+			ResultSet rs = null;
+			try {
+				//3. Query준비
+				pstm = con.prepareStatement(sql);
+				pstm.setString(1,  id);
+				
+				//4. Query 실행 및 리턴
+				rs = pstm.executeQuery();
+				if (rs.next()) {
+					String passwordFromDb = rs.getString("password"); // 비밀번호 컬럼 이름으로 수정필요.
+					
+					// 사용자가 입력한 비밀번호와 DB에서 조회한 비밀번호가 동일하면...로그인 성공
+					if (passwordFromDb.equals(password)) {
+						successLogin = true;
+					}
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}finally {
+				//5. DB종료
+				try {
+					rs.close();
+					pstm.close();
+					con.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			
+			// 로그인 성공 여부를 검사한다.
+			if (successLogin) {
+				System.out.println("    [로그인에 성공하였습니다.]");
+			} else {
+				System.out.println("    [로그인에 실패하였습니다.]");
+			}
+		}
+	}
 	}
