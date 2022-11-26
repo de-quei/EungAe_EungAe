@@ -132,8 +132,8 @@ class PersonInfo{
 	}
 	public static void logout() {
 		if(loginFlag) {
-			loginFlag = true;
 			System.out.println("    [로그아웃되었습니다.]");
+			loginFlag = false;
 		}else {
 			System.out.println("    [먼저 로그인 해주십시오.]");
 		}
@@ -563,7 +563,7 @@ public class EungAe {
 			case 4:
 				System.out.println();
 				System.out.println("<4. 검색>");
-				System.out.print("이름 >>> ");
+				System.out.print("이름 혹은 내용 일부 입력 >>> ");
 				serchstr = sc.next();
 				search(person, serchstr);
 				System.out.println();
@@ -589,7 +589,7 @@ public class EungAe {
 		private static void search(List<PersonInfo> person, String str) {
 			for(int i = 0; i < person.size(); i++) {
 				PersonInfo searchperson = (PersonInfo) person.get(i);
-				if(searchperson.getName().contains(str)) {
+				if(searchperson.getName().contains(str) || searchperson.getContents().contains(str)) {
 					System.out.println(searchperson.toString());
 				}
 			}
