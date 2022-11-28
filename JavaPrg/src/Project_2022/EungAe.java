@@ -230,12 +230,20 @@ public class EungAe {
 					System.out.println("    [1]. 경제 / [2]. 의료 / [3]. 사회복지");
 					System.out.print("    >>>");
 					int Menu_num2 = sc.nextInt();
+					if(Menu_num1 == 4) {
+						System.out.println();
+						System.out.println("    *****************************");
+						System.out.println("    *          감사합니다          *");
+						System.out.println("    *****************************");
+						exist = false;
+						break;
+					}
 					while(Menu_num2 < 1 || Menu_num2 > 3) {
 						System.out.print("    다시 입력하여주십시오 >>> ");
-						Menu_num1 = sc.nextInt();
+						Menu_num2 = sc.nextInt();
 					}
-					if(Menu_num1 == 1) {
-						if(Menu_num2 == 1) {
+					if(Menu_num1 == 1) { //임신
+						if(Menu_num2 == 1) { //경제
 							File note1_1 = new File("C:/Users/user/Desktop/textfile/p_e.txt");
 									try{
 									        BufferedReader br = new BufferedReader(new FileReader(note1_1));
@@ -258,7 +266,7 @@ public class EungAe {
 										System.out.println(N_list.get(i)); // 순서대로 출력
 									}
 							break;
-						}else if(Menu_num2 == 2) {
+						}else if(Menu_num2 == 2) { // 임신 & 의료
 							File note1_2 = new File("C:/Users/user/Desktop/textfile/p_m.txt");
 									try{
 									        BufferedReader br = new BufferedReader(new FileReader(note1_2));
@@ -281,7 +289,7 @@ public class EungAe {
 										System.out.println(N_list.get(i)); // 순서대로 출력
 									}
 							break;
-						}else if(Menu_num2 == 3) {
+						}else if(Menu_num2 == 3) { // 임신 & 사회복지
 							File note1_3 = new File("C:/Users/user/Desktop/textfile/p_s.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note1_3));
@@ -305,18 +313,31 @@ public class EungAe {
 							}
 							break;
 						}
-					}else if(Menu_num1 == 2) {
-						if(Menu_num2 == 1) {
-							System.out.println();
-							System.out.println("    <1. 첫만남 이용권>");
-							System.out.println("    - 1회 200만우너의 출산지원금을 일시금으로 지급");
-							System.out.println("    - 기존에는 지자체별 지급이였으나, 보건복지부의 통합으로 지역 상관없이 동일하게 지원 가능");
-							System.out.println();
-							System.out.println("    <2. 출산 축하금>");
-							System.out.println("    - 2022년부터 출산 축하금으로 200만원 일시 지원");
-							System.out.println("    - 지차체 별개로 국가에서 지급");
-							break;
-						}else if(Menu_num2 == 2) {
+					}else if(Menu_num1 == 2) { //출산
+						if(Menu_num2 == 1) { // 경제
+							File note2_1 = new File("C:/Users/user/Desktop/textfile/b_e.txt");
+							try{
+							        BufferedReader br = new BufferedReader(new FileReader(note2_1));
+							        String str = br.readLine();
+					                while(str != null){
+					                	N_list.add(str); 
+					                	str = br.readLine();
+					                }
+
+							        br.close();
+							} catch (NullPointerException e){
+								e.getStackTrace();
+							} catch (FileNotFoundException e){ 
+								e.getStackTrace();
+							} catch (IOException e){ 
+								e.getStackTrace();
+							}
+					        
+					        for(int i = 0; i < N_list.size(); i++){ 
+								System.out.println(N_list.get(i)); 
+							}
+					        break;
+						}else if(Menu_num2 == 2) { // 출산 & 의료
 							File note2_2 = new File("C:/Users/user/Desktop/textfile/doesn'tExist.txt");
 									try{
 									        BufferedReader br = new BufferedReader(new FileReader(note2_2));
@@ -339,7 +360,7 @@ public class EungAe {
 										System.out.println(N_list.get(i)); 
 									}
 							        break;
-						}else if(Menu_num2 == 3) {
+						}else if(Menu_num2 == 3) { //출산 & 사회복지
 							File note2_3 = new File("C:/Users/user/Desktop/textfile/doesn'tExist.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note2_3));
@@ -363,23 +384,31 @@ public class EungAe {
 							}
 							break;
 						}
-					}else if(Menu_num1 == 3) {
-						if(Menu_num2 == 1) {
-							System.out.println();
-							System.out.println("    <1. 영아수당 & 양육수당>");
-							System.out.println("    - 어린이집, 아이돌봄서비스를 이용하지 않는 영유아 아동의 양육수당 지급");
-							System.out.println("    - 내용: 24개월 미만 영아 -> 월 30만원");
-							System.out.println("    -      만 2세 이상에서 만 7세 미만 -> 월 10만원 ");
-							System.out.println();
-							System.out.println("    <2. 아동수당>");
-							System.out.println("    - 영아수당, 양육수당과는 별개의 서비스");
-							System.out.println("    - 만 8세까지 매월 10만원의 아동수당 지급.");
-							System.out.println();
-							System.out.println("    <3. 아빠 육아휴직 보너스제>");
-							System.out.println("    - 조건: 부모가 차례로 같은 자녀에 대해 휴직을 사용하는 경우");
-							System.out.println("    - 내용: 사용한 사람에게 첫 3개월까지 통상임금의 100%(상한액 월 250만원)지급");
+					}else if(Menu_num1 == 3) { // 육아
+						if(Menu_num2 == 1) { // 경제
+							File note3_1 = new File("C:/Users/user/Desktop/textfile/c_e.txt");
+							try{
+							        BufferedReader br = new BufferedReader(new FileReader(note3_1));
+							        String str = br.readLine();
+					                while(str != null){
+					                	N_list.add(str); 
+					                	str = br.readLine();
+					                }
+
+							        br.close();
+							} catch (NullPointerException e){ 
+								e.getStackTrace();
+							} catch (FileNotFoundException e){
+								e.getStackTrace();
+							} catch (IOException e){ 
+								e.getStackTrace();
+							}
+					        
+					        for(int i = 0; i < N_list.size(); i++){ 
+								System.out.println(N_list.get(i)); 
+							}
 							break;
-						}else if(Menu_num2 == 2) {
+						}else if(Menu_num2 == 2) { //육아 & 의료
 							File note3_2 = new File("C:/Users/user/Desktop/textfile/doesn'tExist.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note3_2));
@@ -402,16 +431,28 @@ public class EungAe {
 								System.out.println(N_list.get(i)); 
 							}
 							break;
-						}else if(Menu_num2 == 3) {
-							System.out.println();
-							System.out.println("    <1. 육아휴직 급여>");
-							System.out.println("    - 조건: 만 8세 이하 또는 초등학교 2학년까지의 자녀를 양육하고 있어야 함.");
-							System.out.println("    - 내용: 통상임금의 80% / 1~12개월까지 모두 동일하게 수령 가능");
-							System.out.println();
-							System.out.println("    <2. 3+3 부모 육아휴직제>");
-							System.out.println("    - 조건: 생후 12개월 이하의 자녀를 둔 부모가 육아휴직을 사용할 때, 사용가능");
-							System.out.println("    - 내용: 첫 3개월 동안 육아휴직 급여를 100% 수령 가능");
-							System.out.println("    - 첫 달: 200만원 / 두 번째 달: 250만원 / 세 번째 달: 300만원");
+						}else if(Menu_num2 == 3) { //육아 & 사회복지
+							File note3_3 = new File("C:/Users/user/Desktop/textfile/c_s.txt");
+							try{
+							        BufferedReader br = new BufferedReader(new FileReader(note3_3));
+							        String str = br.readLine();
+					                while(str != null){
+					                	N_list.add(str); 
+					                	str = br.readLine();
+					                }
+
+							        br.close();
+							} catch (NullPointerException e){ 
+								e.getStackTrace();
+							} catch (FileNotFoundException e){
+								e.getStackTrace();
+							} catch (IOException e){ 
+								e.getStackTrace();
+							}
+					        
+					        for(int i = 0; i < N_list.size(); i++){ 
+								System.out.println(N_list.get(i)); 
+							}
 							break;
 						}
 					break;
@@ -458,7 +499,6 @@ public class EungAe {
 		}
 	}
 	public static void join() {
-		
 		Scanner sc  = new Scanner(System.in);
 		System.out.print("가입 아이디 입력 : ");
 		String id = sc.next();
