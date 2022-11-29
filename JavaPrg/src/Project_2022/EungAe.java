@@ -1,5 +1,5 @@
 package Project_2022;
-//로그인 후 게시판 등록하면 디비에서 이름 자동 업로드.
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -56,7 +56,6 @@ class PersonInfo{
 	public void showInfo() {
 		System.out.printf("%d.  %s\t%s\t%s", num, name, sex, contents);
 	}
-	@Override
 	public String toString() {
 		String result = String.format("%d.  %s\t%s\t%s", num, name, sex, contents);
 		return result;
@@ -147,7 +146,7 @@ public class EungAe {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		ArrayList<String> N_list = new ArrayList<String>(); // 리스트 선언
+		ArrayList<String> N_list = new ArrayList<String>(); // textfile 불러오기 리스트 선언
 		
 		while(true) {
 		System.out.println();
@@ -175,8 +174,8 @@ public class EungAe {
     	System.out.println("     3. 회원가입");
     	System.out.println("     4. 로그인");
     	System.out.println("     5. 로그아웃");
-    	System.out.println("     6. ※게시판※");
-    	System.out.println("     7. 지역 별 문의처 전화번호");
+    	System.out.println("     6. 게시판");
+    	System.out.println("     7. 전국 보건소 전화번호");
     	System.out.println("     8. 종료");
     	System.out.print("     >>>");
     	int select = sc.nextInt();
@@ -214,33 +213,39 @@ public class EungAe {
 					System.out.print("    >>>");
 					int Menu_num1 = sc.nextInt();
 					if(Menu_num1 == 4) {
-						System.out.println();
-						System.out.println("    *****************************");
-						System.out.println("    *          감사합니다          *");
-						System.out.println("    *****************************");
+						case2_exist();
 						exist = false;
 						break;
 					}
 					while(Menu_num1 < 1 || Menu_num1 > 3) {
 						System.out.print("    다시 입력하여주십시오 >>> ");
 						Menu_num1 = sc.nextInt();
+						if(Menu_num1 == 4) {
+							case2_exist();
+							exist = false;
+							break;
+						}
+						break;
 					}
 					System.out.println();
 					System.out.println("    필요한 서비스의 분야를 선택하여 주십시오.");
-					System.out.println("    [1]. 경제 / [2]. 의료 / [3]. 사회복지");
+					System.out.println("    [1]. 경제 / [2]. 의료 / [3]. 사회복지 / [4]. 종료");
 					System.out.print("    >>>");
 					int Menu_num2 = sc.nextInt();
 					if(Menu_num1 == 4) {
-						System.out.println();
-						System.out.println("    *****************************");
-						System.out.println("    *          감사합니다          *");
-						System.out.println("    *****************************");
+						case2_exist();
 						exist = false;
 						break;
 					}
 					while(Menu_num2 < 1 || Menu_num2 > 3) {
 						System.out.print("    다시 입력하여주십시오 >>> ");
 						Menu_num2 = sc.nextInt();
+						if(Menu_num1 == 4) {
+							case2_exist();
+							exist = false;
+							break;
+						}
+						break;
 					}
 					if(Menu_num1 == 1) { //임신
 						if(Menu_num2 == 1) { //경제
@@ -483,6 +488,27 @@ public class EungAe {
 				}
 			}
 			case 7:{
+				File note3_3 = new File("C:/Users/user/Desktop/textfile/Health_tel.txt");
+				try{
+				        BufferedReader br = new BufferedReader(new FileReader(note3_3));
+				        String str = br.readLine();
+		                while(str != null){
+		                	N_list.add(str); 
+		                	str = br.readLine();
+		                }
+
+				        br.close();
+				} catch (NullPointerException e){ 
+					e.getStackTrace();
+				} catch (FileNotFoundException e){
+					e.getStackTrace();
+				} catch (IOException e){ 
+					e.getStackTrace();
+				}
+		        
+		        for(int i = 0; i < N_list.size(); i++){ 
+					System.out.println(N_list.get(i)); 
+				}
 				break;
 			}
 			case 8:{
@@ -544,7 +570,7 @@ public class EungAe {
 			pstm.setString(2,  pw);
 			pstm.setString(3,  name);
 			pstm.setString(4,  tel);
-			pstm.setString(5, sex);
+			pstm.setString(5,  sex);
 			//4. Query 실행 및 리턴
 			int res = pstm.executeUpdate();
 			if(res > 0) {
@@ -723,5 +749,10 @@ public class EungAe {
 				}
 			}
 		}
-		
+		public static void case2_exist() {
+			System.out.println();
+			System.out.println("    *****************************");
+			System.out.println("    *          감사합니다          *");
+			System.out.println("    *****************************");
+		}
 	}
