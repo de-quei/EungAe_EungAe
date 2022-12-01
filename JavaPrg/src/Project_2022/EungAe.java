@@ -182,7 +182,7 @@ public class EungAe {
 			
 			switch(select) {
 			case 1: // 서비스 안내
-				File note = new File("C:/Users/user/Desktop/textfile/guide.txt");
+				File note = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\guide.txt");
 						try{
 						        BufferedReader br = new BufferedReader(new FileReader(note));
 						        String str = br.readLine();
@@ -201,7 +201,7 @@ public class EungAe {
 						}
 				        
 				        for(int i = 0; i < N_list.size(); i++){ // 저장된 Array의 크기만큼 루프
-							System.out.println(N_list.get(i)); // 순서대로 출력
+							System.out.println(N_list.get(i));// 순서대로 출력
 						}
 				break;
 			case 2: // 서비스 시작
@@ -249,7 +249,7 @@ public class EungAe {
 					}
 					if(Menu_num1 == 1) { //임신
 						if(Menu_num2 == 1) { //경제
-							File note1_1 = new File("C:/Users/user/Desktop/textfile/p_e.txt");
+							File note1_1 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\p_e.txt");
 									try{
 									        BufferedReader br = new BufferedReader(new FileReader(note1_1));
 									        String str = br.readLine();
@@ -272,7 +272,7 @@ public class EungAe {
 									}
 							break;
 						}else if(Menu_num2 == 2) { // 임신 & 의료
-							File note1_2 = new File("C:/Users/user/Desktop/textfile/p_m.txt");
+							File note1_2 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\p_m.txt");
 									try{
 									        BufferedReader br = new BufferedReader(new FileReader(note1_2));
 									        String str = br.readLine();
@@ -295,7 +295,7 @@ public class EungAe {
 									}
 							break;
 						}else if(Menu_num2 == 3) { // 임신 & 사회복지
-							File note1_3 = new File("C:/Users/user/Desktop/textfile/p_s.txt");
+							File note1_3 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\p_s.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note1_3));
 							        String str = br.readLine();
@@ -320,7 +320,7 @@ public class EungAe {
 						}
 					}else if(Menu_num1 == 2) { //출산
 						if(Menu_num2 == 1) { // 경제
-							File note2_1 = new File("C:/Users/user/Desktop/textfile/b_e.txt");
+							File note2_1 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\b_e.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note2_1));
 							        String str = br.readLine();
@@ -343,7 +343,7 @@ public class EungAe {
 							}
 					        break;
 						}else if(Menu_num2 == 2) { // 출산 & 의료
-							File note2_2 = new File("C:/Users/user/Desktop/textfile/doesn'tExist.txt");
+							File note2_2 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\doesn'tExist.txt");
 									try{
 									        BufferedReader br = new BufferedReader(new FileReader(note2_2));
 									        String str = br.readLine();
@@ -366,7 +366,7 @@ public class EungAe {
 									}
 							        break;
 						}else if(Menu_num2 == 3) { //출산 & 사회복지
-							File note2_3 = new File("C:/Users/user/Desktop/textfile/doesn'tExist.txt");
+							File note2_3 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\doesn'tExist.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note2_3));
 							        String str = br.readLine();
@@ -391,7 +391,7 @@ public class EungAe {
 						}
 					}else if(Menu_num1 == 3) { // 육아
 						if(Menu_num2 == 1) { // 경제
-							File note3_1 = new File("C:/Users/user/Desktop/textfile/c_e.txt");
+							File note3_1 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\c_e.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note3_1));
 							        String str = br.readLine();
@@ -414,7 +414,7 @@ public class EungAe {
 							}
 							break;
 						}else if(Menu_num2 == 2) { //육아 & 의료
-							File note3_2 = new File("C:/Users/user/Desktop/textfile/doesn'tExist.txt");
+							File note3_2 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\doesn'tExist.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note3_2));
 							        String str = br.readLine();
@@ -437,7 +437,7 @@ public class EungAe {
 							}
 							break;
 						}else if(Menu_num2 == 3) { //육아 & 사회복지
-							File note3_3 = new File("C:/Users/user/Desktop/textfile/c_s.txt");
+							File note3_3 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\c_s.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note3_3));
 							        String str = br.readLine();
@@ -485,10 +485,11 @@ public class EungAe {
 					break;
 				}else {
 					System.out.println("    [사용자 로그인이 필요합니다.]");
+					break;
 				}
 			}
 			case 7:{
-				File note3_3 = new File("C:/Users/user/Desktop/textfile/Health_tel.txt");
+				File note3_3 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\Health_tel.txt");
 				try{
 				        BufferedReader br = new BufferedReader(new FileReader(note3_3));
 				        String str = br.readLine();
@@ -526,15 +527,15 @@ public class EungAe {
 	}
 	public static void join() {
 		Scanner sc  = new Scanner(System.in);
-		System.out.print("가입 아이디 입력 : ");
+		System.out.print("    >가입 아이디 입력 : ");
 		String id = sc.next();
-		System.out.print("가입 패스워드 입력 : ");
+		System.out.print("    >가입 패스워드 입력 : ");
 		String pw = sc.next();
-		System.out.print("성함 입력 : ");
+		System.out.print("    >성함 입력 : ");
 		String name = sc.next();
-		System.out.print("전화번호 입력 (입력예시 : 010-0000-0000) : ");
+		System.out.print("    >전화번호 입력 (입력예시 : 010-0000-0000) : ");
 		String tel = sc.next();
-		System.out.print("성별 입력 (입력예시 : 여성, 남성..) : ");
+		System.out.print("    >성별 입력 (입력예시 : 여성, 남성..) : ");
 		String sex = sc.next();
 		
 		//1.
