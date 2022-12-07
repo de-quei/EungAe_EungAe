@@ -54,10 +54,10 @@ class PersonInfo{
 		this.contents = contents;
 	}
 	public void showInfo() {
-		System.out.printf("%d.  %s\t%s\t%s", num, name, sex, contents);
+		System.out.printf("    %d.  %s\t%s\t%s", num, name, sex, contents);
 	}
 	public String toString() {
-		String result = String.format("%d.  %s\t%s\t%s", num, name, sex, contents);
+		String result = String.format("    %d.  %s\t%s\t%s", num, name, sex, contents);
 		return result;
 	}
 	public static void login() {
@@ -81,7 +81,7 @@ class PersonInfo{
 		//2.
 		String url = "jdbc:mysql://localhost:3306/eungae_eungae?serverTimezone=UTC";
 		String user = "root";
-		String Password = "0000";
+		String Password = "1234";
 		Connection con = null;
 		try {
 			con = DriverManager.getConnection(url, user, Password);
@@ -182,7 +182,7 @@ public class EungAe {
 			
 			switch(select) {
 			case 1: // 서비스 안내
-				File note = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\guide.txt");
+				File note = new File("../textfile/guide.txt");
 						try{
 						        BufferedReader br = new BufferedReader(new FileReader(note));
 						        String str = br.readLine();
@@ -249,7 +249,7 @@ public class EungAe {
 					}
 					if(Menu_num1 == 1) { //임신
 						if(Menu_num2 == 1) { //경제
-							File note1_1 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\p_e.txt");
+							File note1_1 = new File("../textfile/p_e.txt");
 									try{
 									        BufferedReader br = new BufferedReader(new FileReader(note1_1));
 									        String str = br.readLine();
@@ -272,7 +272,7 @@ public class EungAe {
 									}
 							break;
 						}else if(Menu_num2 == 2) { // 임신 & 의료
-							File note1_2 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\p_m.txt");
+							File note1_2 = new File("../textfile/p_m.txt");
 									try{
 									        BufferedReader br = new BufferedReader(new FileReader(note1_2));
 									        String str = br.readLine();
@@ -295,7 +295,7 @@ public class EungAe {
 									}
 							break;
 						}else if(Menu_num2 == 3) { // 임신 & 사회복지
-							File note1_3 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\p_s.txt");
+							File note1_3 = new File("../textfile/p_s.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note1_3));
 							        String str = br.readLine();
@@ -320,7 +320,7 @@ public class EungAe {
 						}
 					}else if(Menu_num1 == 2) { //출산
 						if(Menu_num2 == 1) { // 경제
-							File note2_1 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\b_e.txt");
+							File note2_1 = new File("../textfile/b_e.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note2_1));
 							        String str = br.readLine();
@@ -343,7 +343,7 @@ public class EungAe {
 							}
 					        break;
 						}else if(Menu_num2 == 2) { // 출산 & 의료
-							File note2_2 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\doesn'tExist.txt");
+							File note2_2 = new File("../textfile/doesn'tExist.txt");
 									try{
 									        BufferedReader br = new BufferedReader(new FileReader(note2_2));
 									        String str = br.readLine();
@@ -366,7 +366,7 @@ public class EungAe {
 									}
 							        break;
 						}else if(Menu_num2 == 3) { //출산 & 사회복지
-							File note2_3 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\doesn'tExist.txt");
+							File note2_3 = new File("../textfile/doesn'tExist.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note2_3));
 							        String str = br.readLine();
@@ -391,7 +391,7 @@ public class EungAe {
 						}
 					}else if(Menu_num1 == 3) { // 육아
 						if(Menu_num2 == 1) { // 경제
-							File note3_1 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\c_e.txt");
+							File note3_1 = new File("../textfile/c_e.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note3_1));
 							        String str = br.readLine();
@@ -414,7 +414,7 @@ public class EungAe {
 							}
 							break;
 						}else if(Menu_num2 == 2) { //육아 & 의료
-							File note3_2 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\doesn'tExist.txt");
+							File note3_2 = new File("../textfile/doesn'tExist.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note3_2));
 							        String str = br.readLine();
@@ -437,7 +437,7 @@ public class EungAe {
 							}
 							break;
 						}else if(Menu_num2 == 3) { //육아 & 사회복지
-							File note3_3 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\c_s.txt");
+							File note3_3 = new File("../textfile/c_s.txt");
 							try{
 							        BufferedReader br = new BufferedReader(new FileReader(note3_3));
 							        String str = br.readLine();
@@ -489,7 +489,7 @@ public class EungAe {
 				}
 			}
 			case 7:{
-				File note3_3 = new File("E:\\전공\\Java\\2학기\\workspace\\textfile\\Health_tel.txt");
+				File note3_3 = new File("../textfile/Health_tel.txt");
 				try{
 				        BufferedReader br = new BufferedReader(new FileReader(note3_3));
 				        String str = br.readLine();
@@ -527,6 +527,7 @@ public class EungAe {
 	}
 	public static void join() {
 		Scanner sc  = new Scanner(System.in);
+		
 		System.out.print("    >가입 아이디 입력 : ");
 		String id = sc.next();
 		System.out.print("    >가입 패스워드 입력 : ");
@@ -548,7 +549,7 @@ public class EungAe {
 		//2.
 		String url = "jdbc:mysql://localhost:3306/eungae_eungae?serverTimezone=UTC";
 		String user = "root";
-		String password = "0000";
+		String password = "1234";
 		Connection con = null;
 		
 		try {
@@ -598,52 +599,52 @@ public class EungAe {
 		boolean runx = true;
 		int num = 0;
 		String serchstr = "";
-		System.out.println("*******************************");
-		System.out.println("*          게   시   판         *");
-		System.out.println("*******************************");
+		System.out.println("    *******************************");
+		System.out.println("    *          게   시   판         *");
+		System.out.println("    *******************************");
 		
 		while(runx) {
 			Scanner sc = new Scanner(System.in);
-			System.out.println("1.리스트  2. 등록  3. 삭제  4. 검색  5. 종료");
-			System.out.println("----------------------------------------");
-			System.out.print("메뉴 번호 >>> ");
+			System.out.println("    1.리스트  2. 등록  3. 삭제  4. 검색  5. 종료");
+			System.out.println("    ----------------------------------------");
+			System.out.print("    메뉴 번호 >>> ");
 			num = sc.nextInt();
 			
 			switch(num) {
 			case 1:
 				System.out.println();
-				System.out.println("<1 리스트>");
+				System.out.println("    <1 리스트>");
 				showinfo(person);
 				System.out.println();
 				break;
 			case 2:
 				System.out.println();
-				System.out.println("<2. 등록>");
+				System.out.println("    <2. 등록>");
 				add(sc, person);
 				break;
 			case 3:
 				System.out.println();
-				System.out.println("<3. 삭제>");
-				System.out.print("번호 >>> ");
+				System.out.println("    <3. 삭제>");
+				System.out.print("    번호 >>> ");
 				delete(sc, person);
 				break;
 			case 4:
 				System.out.println();
-				System.out.println("<4. 검색>");
-				System.out.print("이름 혹은 내용 일부 입력 >>> ");
+				System.out.println("    <4. 검색>");
+				System.out.print("    이름 혹은 내용 일부 입력 >>> ");
 				serchstr = sc.next();
 				search(person, serchstr);
 				System.out.println();
 				break;
 			case 5:
 				System.out.println();
-				System.out.println("*****************************");
-				System.out.println("*          감사합니다          *");
-				System.out.println("*****************************");
+				System.out.println("    *****************************");
+				System.out.println("    *          감사합니다          *");
+				System.out.println("    *****************************");
 				runx = false;
 				break;
 			default:
-				System.out.println("[다시 입력해 주세요]");
+				System.out.println("    [다시 입력해 주세요]");
 				System.out.println();
 				break;
 			}
@@ -669,7 +670,7 @@ public class EungAe {
 			update(person);
 			System.out.println();
 			wirteTxt(person);
-			System.out.println("[삭제되었습니다.]");
+			System.out.println("    [삭제되었습니다.]");
 		}
 		
 		//게시판 리스트를 보여주는 기능
@@ -684,17 +685,17 @@ public class EungAe {
 			String name;
 			String sex;
 			String contents;
-			System.out.print(">이름 : ");
+			System.out.print("    >이름 : ");
 			name = sc.next();
-			System.out.print(">성별 : ");
+			System.out.print("    >성별 : ");
 			sex = sc.next();
-			System.out.print(">내용 : ");
+			System.out.print("    >내용 : ");
 			contents = sc.next();
 			person.add(new PersonInfo(name, sex, contents));
 			update(person);
 			System.out.println();
 			wirteTxt(person);
-			System.out.println("[등록되었습니다.]");
+			System.out.println("    [등록되었습니다.]");
 		}
 		private static void update(List<PersonInfo> person) {
 			for(int i = 0; i < person.size(); i++) {
